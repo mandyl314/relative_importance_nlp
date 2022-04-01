@@ -1,4 +1,6 @@
+
 # Relative Importance in Sentence Processing
+Repo cloned from https://github.com/beinborn/relative_importance
 
 This project contains code for the following paper: <br><br>
 Nora Hollenstein, Lisa Beinborn (2021): <br>
