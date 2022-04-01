@@ -1,0 +1,281 @@
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+geco
+saliency
+geco bert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.5355734293651041 0.38331429118788746
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.05
+---------------
+
+geco albert
+Token alignment errors:  0
+Spearman Correlation Model: Mean, Stdev
+0.4805414917785341 0.3990780922059055
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.04
+---------------
+
+geco distil
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.5061066584339192 0.3897222961826243
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+attention
+geco bert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.18251484589295297 0.4388215316623401
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+geco albert
+Token alignment errors:  367
+Spearman Correlation Model: Mean, Stdev
+0.25550212026464064 0.44057655050114314
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.04
+---------------
+
+geco distil
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.06003836713082663 0.4492653781234982
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+  importance_type corpus   model  mean_correlation  std_correlation
+0        saliency   geco    bert          0.535573         0.383314
+1        saliency   geco  albert          0.480541         0.399078
+2        saliency   geco  distil          0.506107         0.389722
+3       attention   geco    bert          0.182515         0.438822
+4       attention   geco  albert          0.255502         0.440577
+5       attention   geco  distil          0.060038         0.449265
+
+  importance_type corpus   model  mean_correlation  std_correlation
+0        saliency   geco    bert          0.000644         0.045063
+1        saliency   geco  albert          0.000385         0.044332
+2        saliency   geco  distil         -0.000378         0.046004
+3       attention   geco    bert         -0.001654         0.045871
+4       attention   geco  albert          0.000494         0.044839
+5       attention   geco  distil         -0.000485         0.045656
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+
+zuco
+saliency
+zuco bert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.6797022212709019 0.2064183065008222
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.03
+---------------
+
+zuco albert
+Token alignment errors:  3
+Spearman Correlation Model: Mean, Stdev
+0.6192498275115023 0.2260502791054625
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+zuco distil
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.6428957670009539 0.22060635196122058
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+attention
+zuco bert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.11423657134965315 0.3277511337290547
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+zuco albert
+Token alignment errors:  147
+Spearman Correlation Model: Mean, Stdev
+0.3689093433689321 0.27783043146453357
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+zuco distil
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.029608780207461088 0.3445260272309567
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+   importance_type corpus   model  mean_correlation  std_correlation
+0         saliency   geco    bert          0.535573         0.383314
+1         saliency   geco  albert          0.480541         0.399078
+2         saliency   geco  distil          0.506107         0.389722
+3        attention   geco    bert          0.182515         0.438822
+4        attention   geco  albert          0.255502         0.440577
+5        attention   geco  distil          0.060038         0.449265
+6         saliency   zuco    bert          0.679702         0.206418
+7         saliency   zuco  albert          0.619250         0.226050
+8         saliency   zuco  distil          0.642896         0.220606
+9        attention   zuco    bert          0.114237         0.327751
+10       attention   zuco  albert          0.368909         0.277830
+11       attention   zuco  distil          0.029609         0.344526
+
+   importance_type corpus   model  mean_correlation  std_correlation
+0         saliency   geco    bert          0.000644         0.045063
+1         saliency   geco  albert          0.000385         0.044332
+2         saliency   geco  distil         -0.000378         0.046004
+3        attention   geco    bert         -0.001654         0.045871
+4        attention   geco  albert          0.000494         0.044839
+5        attention   geco  distil         -0.000485         0.045656
+6         saliency   zuco    bert         -0.000484         0.032708
+7         saliency   zuco  albert          0.000124         0.032374
+8         saliency   zuco  distil          0.000747         0.031683
+9        attention   zuco    bert          0.001913         0.033784
+10       attention   zuco  albert          0.000730         0.032209
+11       attention   zuco  distil          0.000337         0.032344
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+
+['oh', 'sherlock', 'holmes', 'by', 'all', 'means'] [0.28151982 0.16424922 0.12135392 0.1018927  0.14048967 0.19049468] [0.10290655 0.22369806 0.17069704 0.05666845 0.06714246 0.37888744]
+Traceback (most recent call last):
+  File "analyze_all.py", line 170, in <module>
+    lm_pos_tags, lm_frequencies = process_tokens(lm_tokens)
+  File "/scratch/gpfs/mandyl/relative_importance/analysis/create_plots.py", line 12, in process_tokens
+    nlp = spacy.load('en_core_web_md')
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/__init__.py", line 30, in load
+    return util.load_model(name, **overrides)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/util.py", line 175, in load_model
+    raise IOError(Errors.E050.format(name=name))
+OSError: [E050] Can't find model 'en_core_web_md'. It doesn't seem to be a shortcut link, a Python package or a valid path to a data directory.

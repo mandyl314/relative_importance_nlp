@@ -17,3 +17,34 @@ Model Importance:
 11 &       attention &   zuco &  distil &          0.029609 &         0.344526 \\
 \bottomrule
 \end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &   model &  mean\_correlation &  std\_correlation \\
+\midrule
+0  &        saliency &   geco &    bert &          0.000872 &         0.044457 \\
+1  &        saliency &   geco &  albert &         -0.000469 &         0.044478 \\
+2  &        saliency &   geco &  distil &         -0.000305 &         0.045775 \\
+3  &       attention &   geco &    bert &         -0.000604 &         0.045301 \\
+4  &       attention &   geco &  albert &          0.001195 &         0.044779 \\
+5  &       attention &   geco &  distil &         -0.000407 &         0.044206 \\
+6  &        saliency &   zuco &    bert &         -0.000504 &         0.031570 \\
+7  &        saliency &   zuco &  albert &         -0.000045 &         0.031050 \\
+8  &        saliency &   zuco &  distil &         -0.001223 &         0.032657 \\
+9  &       attention &   zuco &    bert &         -0.001106 &         0.033241 \\
+10 &       attention &   zuco &  albert &          0.000102 &         0.032300 \\
+11 &       attention &   zuco &  distil &         -0.000137 &         0.031635 \\
+\bottomrule
+\end{tabular}
+
+
+Len-Freq Baselines: 
+\begin{tabular}{lllll}
+\toprule
+Empty DataFrame
+Columns: Index(['corpus', 'baseline\_type', 'mean\_correlation', 'std\_correlation'], dtype='object')
+Index: Index([], dtype='object') \\
+\bottomrule
+\end{tabular}

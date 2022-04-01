@@ -47,6 +47,7 @@ def visualize_frequencies(et_frequencies, human_saliency, lm_frequencies, machin
     print(scipy.stats.spearmanr(lm_frequencies, machine_saliency)[0])
     plt.legend(loc='upper right')
 
+    plt.title("Reproduced Results")
     plt.xlabel("Frequency")
     plt.ylabel("Relative Importance")
     plt.savefig(outfile,bbox_inches="tight" )
@@ -73,6 +74,7 @@ def visualize_lengths(et_tokens, human_saliency, lm_tokens, machine_saliency, ou
     print(scipy.stats.spearmanr(lm_lengths, machine_saliency)[0])
     plt.legend(loc='upper right')
 
+    plt.title("Reproduced Results")
     plt.xlabel("Length")
     plt.ylabel("Relative Importance")
     plt.savefig(outfile)
@@ -109,6 +111,7 @@ def visualize_posdistribution(tag2importance, outfile):
     sns.set(font_scale=2)
     fig = sns.catplot(x="PosTag", y="Mean", data=data, kind="bar", height=7, aspect=2)
     plt.ylim(0.0,0.055)
+    plt.title("Reproduced Results")
     plt.xlabel("")
     plt.ylabel("Relative Importance")
 
@@ -171,9 +174,9 @@ def visualize_sentence(i, et_tokens, human_saliency, lm_saliency, outfile):
     sns.set(font_scale=1)
     sns.set_style("white")
     sns.lineplot(x="Tokens", y="Importance", data=all_data, hue="dataset", style="dataset", markers=False,
-                 dashes=[(3, 3), (3, 3)], palette=mypalette)
+                 dashes=[(3, 3), (3, 3)], palette=mypalette).set(title='reproduced results')
     sns.scatterplot(x="Tokens", y="Importance", data=all_data, hue="dataset", size="Importance", markers=["o", "o"],
-                    legend=False, sizes=(50, 300), palette=mypalette)
+                    legend=False, sizes=(50, 300), palette=mypalette).set(title='reproduced results')
 
     handles, labels = ax.get_legend_handles_labels()
     ax.legend(handles=handles, labels=labels)
@@ -197,7 +200,8 @@ def barplot_for_example(et_tokens, human_importance, outfile):
     g.set_yticklabels([0, 0.1, 0.2])
     g.tick_params(labelsize=10)
     g.set(xlabel=None)
-    g.set_ylabel("Relative Importance", fontsize=10)
+    g.set_ylabel("Relative Importance- reproduced", fontsize=10)
+    g.set_title('reproduced results')
 
     plt.savefig(outfile)
     plt.close()

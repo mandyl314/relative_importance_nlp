@@ -15,6 +15,8 @@ data = pd.DataFrame(sent_data, columns=sent)
 plt.figure(figsize=(14,6))
 sns.boxplot(data=data, palette=sns.color_palette("husl", len(sent) +1))
 sns.despine(offset=10, trim=True)
+
+plt.title("Reproduced Results")
 plt.ylabel('relative fixation duration')
 #plt.show()
 plt.savefig("plots/rel_fix_subjects.pdf", bbox_inches="tight")
