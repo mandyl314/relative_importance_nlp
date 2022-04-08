@@ -20,7 +20,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x153a4d2cf7c0>: Failed to establish a new connection: [Errno -2] Name or service not known
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14e0cca08580>: Failed to establish a new connection: [Errno -2] Name or service not known
 
 During handling of the above exception, another exception occurred:
 
@@ -31,7 +31,7 @@ Traceback (most recent call last):
     retries = retries.increment(
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x153a4d2cf7c0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14e0cca08580>: Failed to establish a new connection: [Errno -2] Name or service not known'))
 
 During handling of the above exception, another exception occurred:
 
@@ -60,33 +60,18 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
     raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x153a4d2cf7c0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-       Frequency  Importance dataset
-0       0.000174    0.004135   Model
-1       0.022900    0.001205   Model
-2       0.001320    0.003165   Model
-3       0.000398    0.002433   Model
-4       0.000692    0.003473   Model
-...          ...         ...     ...
-16406   0.006310    0.001526   Human
-16407   0.022900    0.001097   Human
-16408   0.000012    0.114809   Human
-16409   0.000219    0.008567   Human
-16410   0.025700    0.000877   Human
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14e0cca08580>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+2022-04-04 11:47:18.175347: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-04 11:47:18.175404: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-04-04 11:47:29.867675: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2022-04-04 11:47:29.875418: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-04 11:47:29.875511: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-04 11:47:29.875561: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (della-r4c4n9): /proc/driver/nvidia/version does not exist
+2022-04-04 11:47:29.877171: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-04 11:47:29.877316: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+All model checkpoint layers were used when initializing TFBertForMaskedLM.
 
-[32510 rows x 3 columns]
-Overall correlation: 
-Human - Frequency
--0.35987217005188926
-Model - Frequency
--0.34328616721534877
----------------
-Length Baseline
-Spearman Correlation: Mean: 0.75, Stdev: 0.19
----------------
-
----------------
-Frequency Baseline
-Spearman Correlation: Mean: -0.52, Stdev: 0.28
----------------
-
+All the layers of TFBertForMaskedLM were initialized from the model checkpoint at bert-base-uncased.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertForMaskedLM for predictions without further training.
+slurmstepd: error: *** JOB 40144688 ON della-r4c4n9 CANCELLED AT 2022-04-05T11:52:07 DUE TO TIME LIMIT ***
