@@ -7,7 +7,7 @@ import scipy.special
 
 
 
-# The code for calculating sensitivity is based on the integrated gradients
+# The code for calculating sensitivity is based on the integrated gradients method
 def compute_sensitivity(model, embedding_matrix, tokenizer, text):
     token_ids = tokenizer.encode(text, add_special_tokens=True)
     vocab_size = embedding_matrix.get_shape()[0]
