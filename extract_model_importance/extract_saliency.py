@@ -5,8 +5,9 @@ import numpy as np
 import tensorflow as tf
 import scipy.special
 
-# The code for calculating sensitivity is based on the TextualHeatmap example by Andreas Madsen: https://colab.research.google.com/github/AndreasMadsen/python-textualheatmap/blob/master/notebooks/huggingface_bert_example.ipynb#scrollTo=X8GJbpoUmYdT
-# As described in [Andreas Madsen's distill paper](https://distill.pub/2019/memorization-in-rnns/), the saliency map is computed by measuring the gradient magnitude of the output w.r.t. the input.
+
+
+# The code for calculating sensitivity is based on the integrated gradients
 def compute_sensitivity(model, embedding_matrix, tokenizer, text):
     token_ids = tokenizer.encode(text, add_special_tokens=True)
     vocab_size = embedding_matrix.get_shape()[0]
@@ -34,15 +35,28 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text):
             output_mask[0, masked_token_index, token_ids[masked_token_index]] = 1
             output_mask_tensor = tf.constant(output_mask, dtype='float32')
             
+            #number of steps for integrated gradients
+            m = 100
+            sensitivity_non_normalized = None
+            for alpha in np.linspace(0, 1, m):
             # Compute gradient of the logits of the correct target, w.r.t. the input
-            with tf.GradientTape(watch_accessed_variables=False) as tape:
-                tape.watch(token_ids_tensor_one_hot)
-                inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
-                predict = model({"inputs_embeds": inputs_embeds}).logits
-                predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
+                with tf.GradientTape(watch_accessed_variables=False) as tape:
+                    tape.watch(token_ids_tensor_one_hot)
+                    inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
+                    baseline = tf.zeros_like(inputs_embeds)
+                    x_diff = input_embeds - baseline
+                    x_step = baseline + alpha * x_diff
+                    predict = model({"inputs_embeds": x_step }).logits
+                    predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
             # compute the sensitivity and take l2 norm
-            sensitivity_non_normalized = tf.norm(tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot), axis=2)
+                if not sensitivity_non_normalized:
+                    sensitivity_non_normalized = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
+                else:
+                    sensitivity_non_normalized += tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
+
+            sensitivity_non_normalized /= m
+            sensitivity_non_normalized = tf.norm(sensitivity_non_normalized, axis = 2)
 
             # Normalize by the max
             sensitivity_tensor = (sensitivity_non_normalized / tf.reduce_max(sensitivity_non_normalized))
