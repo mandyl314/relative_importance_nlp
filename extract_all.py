@@ -38,7 +38,8 @@ def extract_all_human_importance(corpus):
         data_extractor_zuco
 
 
-corpora = ["geco", "zuco"]
+#corpora = ["geco", "zuco"]
+corpora = ["zuco"]
 #models = ["distil", "albert","bert"]
 models = ["bert"]
 

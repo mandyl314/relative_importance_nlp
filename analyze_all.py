@@ -6,7 +6,7 @@ from analysis.calculate_baselines import calculate_freq_baseline, calculate_len_
 from extract_model_importance.tokenization_util import merge_symbols, merge_albert_tokens, merge_hyphens
 
 def extract_human_importance(dataset):
-    with open("results/" + dataset + "_sentences.txt", "r") as f:
+    with open("results_reproduced/" + dataset + "_sentences.txt", "r") as f:
         sentences = f.read().splitlines()
 
     # split and lowercase
@@ -14,7 +14,7 @@ def extract_human_importance(dataset):
     tokens = [[t.lower() for t in tokens] for tokens in tokens]
 
     human_importance = []
-    with open("results/" + dataset + "_relfix_averages.txt", "r") as f:
+    with open("results_reproduced/" + dataset + "_relfix_averages.txt", "r") as f:
         for line in f.read().splitlines():
             fixation_duration = np.fromstring(line, dtype=float, sep=',')
             human_importance.append(fixation_duration)
@@ -26,7 +26,7 @@ def extract_human_importance(dataset):
 def extract_model_importance(dataset, model, importance_type):
     lm_tokens = []
     lm_salience = []
-    with open("results/" + dataset + "_" + model + "_" + importance_type + ".txt", "r") as f:
+    with open("results_reproduced/" + dataset + "_" + model + "__reproduced_" + importance_type + ".txt", "r") as f:
         for line in f.read().splitlines():
             tokens, heat = line.split("\t")
 
@@ -50,7 +50,8 @@ def compare_importance(et_tokens, human_salience, lm_tokens, lm_salience, import
     spearman_correlations = []
     kendall_correlations = []
     mutual_information = []
-    with open("results/correlations/" + corpus + "_" + model + "_" + importance_type + "_correlations.txt", "w") as outfile:
+    out = "results_reproduced/correlations/" + corpus + "_" + model + "_reproduced_" + importance_type + "_correlations.txt"
+    with open(out, "w") as outfile:
         outfile.write("Spearman\tKendall\tMutualInformation\n")
         for i, sentence in enumerate(et_tokens):
             if len(et_tokens[i]) < len(lm_tokens[i]):
@@ -103,86 +104,88 @@ baseline_results = pd.DataFrame(columns=('corpus', 'baseline_type', 'mean_correl
 results = pd.DataFrame(columns=('importance_type', 'corpus', 'model', 'mean_correlation', 'std_correlation'))
 permutation_results = pd.DataFrame(
     columns=('importance_type', 'corpus', 'model', 'mean_correlation', 'std_correlation'))
-# for corpus in corpora:
-#     print(corpus)
-#     et_tokens, human_importance = extract_human_importance(corpus)
 
-#     for importance_type in types:
-#         print(importance_type)
+for corpus in corpora:
+    print(corpus)
+    et_tokens, human_importance = extract_human_importance(corpus)
 
-#         for model in models:
-#             lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
+    for importance_type in types:
+        print(importance_type)
 
-#             # Model Correlation
-#             spearman_mean, spearman_std = compare_importance(et_tokens, human_importance, lm_tokens, lm_importance, importance_type)
-#             results = results.append( {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std}, ignore_index=True)
+        for model in models:
+            lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
 
-#             #Permutation Baseline
-#             spearman_mean, spearman_std = calculate_permutation_baseline(human_importance, lm_importance)
-#             permutation_results = permutation_results.append(
-#                 {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std},
-#                 ignore_index=True)
+            # Model Correlation
+            spearman_mean, spearman_std = compare_importance(et_tokens, human_importance, lm_tokens, lm_importance, importance_type)
+            results = results.append( {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std}, ignore_index=True)
 
-
-#     # Store results
-#     with open("results/all_results.txt", "w") as outfile:
-#         outfile.write("Model Importance: \n")
-#         outfile.write(results.to_latex())
-
-#         outfile.write("\n\nPermutation Baselines: \n")
-#         outfile.write(permutation_results.to_latex())
-
-#         outfile.write("\n\nLen-Freq Baselines: \n")
-#         outfile.write(baseline_results.to_latex())
-
-#         print(results)
-#         print()
-#         print(permutation_results)
-#         print()
-#         print(baseline_results)
-#         print()
+            #Permutation Baseline
+            spearman_mean, spearman_std = calculate_permutation_baseline(human_importance, lm_importance)
+            permutation_results = permutation_results.append(
+                {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std},
+                ignore_index=True)
 
 
-# -- UNCOMMENTED CODE BELOW --
+    # Store results
+    with open("results_reproduced/all_results.txt", "w") as outfile:
+        outfile.write("Model Importance: \n")
+        outfile.write(results.to_latex())
+
+        outfile.write("\n\nPermutation Baselines: \n")
+        outfile.write(permutation_results.to_latex())
+
+        outfile.write("\n\nLen-Freq Baselines: \n")
+        outfile.write(baseline_results.to_latex())
+
+        print(results)
+        print()
+        print(permutation_results)
+        print()
+        print(baseline_results)
+        print()
+
+
 
 # Plot Token-level analyses only for one combination
-model = "bert"
+# model = "bert"
 importance_type = "saliency"
-corpus = "zuco"
+# corpus = "zuco"
+for corpus in corpora:
+        for model in models:
 
-et_tokens, human_importance = extract_human_importance(corpus)
-lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
+            et_tokens, human_importance = extract_human_importance(corpus)
+            lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
 
 
-# Plot length vs saliency
-flat_et_tokens = flatten(et_tokens)
-flat_lm_tokens = flatten(lm_tokens)
-flat_human_importance = flatten_saliency(human_importance)
-flat_lm_importance = flatten_saliency(lm_importance)
-# visualize_lengths(flat_et_tokens, flat_human_importance, flat_lm_tokens, flat_lm_importance, "plots/" + corpus + "_" + model + "_length.png")
+            # Plot length vs saliency
+            flat_et_tokens = flatten(et_tokens)
+            flat_lm_tokens = flatten(lm_tokens)
+            flat_human_importance = flatten_saliency(human_importance)
+            flat_lm_importance = flatten_saliency(lm_importance)
+            visualize_lengths(flat_et_tokens, flat_human_importance, flat_lm_tokens, flat_lm_importance, "plots_reproduced/" + corpus + "_" + model + "_reproduced_length.png")
 
-# Plot an example sentence
-i = 153
-# visualize_sentence(i, et_tokens, human_importance, lm_importance, "plots/" + model + "_" + str(i) + ".png")
+            # Plot an example sentence
+            # i = 153
+            # visualize_sentence(i, et_tokens, human_importance, lm_importance, "plots_reproduced/" + model + "_reproduced_" + str(i) + ".png")
 
-# Linguistic pre-processing (POS-tagging, word frequency extraction)
-# lm_tokens and et_tokens differ slightly because there are some cases which cannot be perfectly aligned.
-lm_pos_tags, lm_frequencies = process_tokens(lm_tokens)
-pos_tags, frequencies = process_tokens(et_tokens)
+            # Linguistic pre-processing (POS-tagging, word frequency extraction)
+            # lm_tokens and et_tokens differ slightly because there are some cases which cannot be perfectly aligned.
+            lm_pos_tags, lm_frequencies = process_tokens(lm_tokens)
+            pos_tags, frequencies = process_tokens(et_tokens)
 
-# Plot POS distribution with respect to saliency
-tag2machineimportance = calculate_saliency_by_wordclass(lm_pos_tags, lm_importance)
-visualize_posdistribution(tag2machineimportance, "plots/" + corpus + "_" + model + "_wordclasses.png")
+            # Plot POS distribution with respect to saliency
+            tag2machineimportance = calculate_saliency_by_wordclass(lm_pos_tags, lm_importance)
+            visualize_posdistribution(tag2machineimportance, "plots_reproduced/" + corpus + "_" + model + "_reproduced_wordclasses.png")
 
-# Plot POS distribution with respect to human importance
-tag2humanimportance = calculate_saliency_by_wordclass(pos_tags, human_importance)
-visualize_posdistribution(tag2humanimportance, "plots/" + corpus + "_human_wordclasses.png")
+            # Plot POS distribution with respect to human importance
+            tag2humanimportance = calculate_saliency_by_wordclass(pos_tags, human_importance)
+            visualize_posdistribution(tag2humanimportance, "plots_reproduced/" + corpus + "_reproduced_human_wordclasses.png")
 
-# Plot frequency vs saliency
-flat_frequencies = flatten(frequencies)
-flat_lm_frequencies = flatten(lm_frequencies)
-visualize_frequencies(flat_frequencies, flat_human_importance, flat_lm_frequencies,
-                          flat_lm_importance, "plots/" + corpus + "_" + model + "_frequency.png")
+            # Plot frequency vs saliency
+            flat_frequencies = flatten(frequencies)
+            flat_lm_frequencies = flatten(lm_frequencies)
+            visualize_frequencies(flat_frequencies, flat_human_importance, flat_lm_frequencies,
+                                    flat_lm_importance, "plots_reproduced/" + corpus + "_" + model + "_reproduced_frequency.png")
 
 
 

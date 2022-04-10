@@ -13,21 +13,14 @@ module purge
 module load anaconda3/2020.11
 source nlpenv/bin/activate
 
-# module purge
-# module load anaconda3/2019.10
-# source 484env/bin/activate
 
 cd /scratch/gpfs/mandyl/relative_importance/
 
-# module purge
-# module load anaconda3/2020.11
-# source nlpenv/bin/activate
 
 # pip3 install -r requirements.txt
 python -m spacy download en_core_web_md
-#python analyze_all.py
+python analyze_all.py
 
 
-python extract_all.py
-# ./script.sh
+#python extract_all.py
 
