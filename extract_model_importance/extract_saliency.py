@@ -43,13 +43,13 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 100
                     tape.watch(token_ids_tensor_one_hot)
                     inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
                     baseline = tf.zeros_like(inputs_embeds)
-                    x_diff = input_embeds - baseline
+                    x_diff = inputs_embeds - baseline
                     x_step = baseline + alpha * x_diff
                     predict = model({"inputs_embeds": x_step }).logits
                     predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
             # compute the sensitivity and take l2 norm
-                if not sensitivity_non_normalized:
+                if sensitivity_non_normalized == None:
                     sensitivity_non_normalized = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
                 else:
                     sensitivity_non_normalized += tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
