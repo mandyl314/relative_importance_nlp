@@ -8,7 +8,7 @@ import scipy.special
 
 
 # The code for calculating sensitivity is based on the integrated gradients method
-def compute_sensitivity(model, embedding_matrix, tokenizer, text):
+def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 100):
     token_ids = tokenizer.encode(text, add_special_tokens=True)
     vocab_size = embedding_matrix.get_shape()[0]
     sensitivity_data = []
@@ -36,9 +36,8 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text):
             output_mask_tensor = tf.constant(output_mask, dtype='float32')
             
             #number of steps for integrated gradients
-            m = 100
             sensitivity_non_normalized = None
-            for alpha in np.linspace(0, 1, m):
+            for alpha in np.linspace(0, 1, nsamples):
             # Compute gradient of the logits of the correct target, w.r.t. the input
                 with tf.GradientTape(watch_accessed_variables=False) as tape:
                     tape.watch(token_ids_tensor_one_hot)
@@ -55,7 +54,7 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text):
                 else:
                     sensitivity_non_normalized += tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
 
-            sensitivity_non_normalized /= m
+            sensitivity_non_normalized /= nsamples
             sensitivity_non_normalized = tf.norm(sensitivity_non_normalized, axis = 2)
 
             # Normalize by the max
