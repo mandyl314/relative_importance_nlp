@@ -32,30 +32,36 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text, stdev_spread=.
             output_mask[0, masked_token_index, token_ids[masked_token_index]] = 1
             output_mask_tensor = tf.constant(output_mask, dtype='float32')
 
+            inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
+
             total_gradients = np.zeros_like(token_ids_tensor_one_hot)
+            # average of nsamples of random normal noise
+            avg_noise = np.zeros_like(inputs_embeds)
             for _ in range(nsamples):
-                # Compute gradient of the logits of the correct target, w.r.t. the input
-                with tf.GradientTape(watch_accessed_variables=False) as tape:
-                    tape.watch(token_ids_tensor_one_hot)
-                    inputs_embeds = tf.matmul(token_ids_tensor_one_hot, embedding_matrix)
+                stdev = stdev_spread * (np.max(inputs_embeds) - np.min(inputs_embeds))
+                noise = np.random.normal(0, stdev, inputs_embeds.shape)
+                avg_noise += noise
+            avg_noise /= nsamples
 
-                    # smooth grad
-                    stdev = stdev_spread * (np.max(inputs_embeds) - np.min(inputs_embeds))
-                    noise = np.random.normal(0, stdev, inputs_embeds.shape)
-                    inputs_embeds_noise = inputs_embeds + noise
+            # Compute gradient of the logits of the correct target, w.r.t. the input
+            with tf.GradientTape(watch_accessed_variables=False) as tape:
+                tape.watch(token_ids_tensor_one_hot)
+                inputs_embeds = tf.matmul(token_ids_tensor_one_hot, embedding_matrix)
 
-                    predict = model({"inputs_embeds": inputs_embeds_noise}).logits
-                    predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
+                # smooth grad
+                inputs_embeds_noise = inputs_embeds + avg_noise
 
-                # compute grad
-                grad = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
+                predict = model({"inputs_embeds": inputs_embeds_noise}).logits
+                predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
-                if magnitude:
-                    total_gradients += (grad * grad)
-                else:
-                    total_gradients += grad
+            # compute grad
+            grad = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
 
-            total_gradients /= nsamples
+            if magnitude:
+                total_gradients += (grad * grad)
+            else:
+                total_gradients += grad
+
             # compute the sensitivity and take l2 norm
             sensitivity_non_normalized = tf.norm(total_gradients, axis=2)
 
