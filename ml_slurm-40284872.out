@@ -1,0 +1,90 @@
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 976, in _validate_conn
+    conn.connect()
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x15401087d880>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 724, in urlopen
+    retries = retries.increment(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x15401087d880>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/__main__.py", line 33, in <module>
+    plac.call(commands[command], sys.argv[1:])
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/plac_core.py", line 367, in call
+    cmd, result = parser.consume(arglist)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/plac_core.py", line 232, in consume
+    return cmd, self.func(*(args + varargs + extraopts), **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/cli/download.py", line 44, in download
+    shortcuts = get_json(about.__shortcuts__, "available shortcuts")
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/cli/download.py", line 95, in get_json
+    r = requests.get(url)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x15401087d880>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+2022-04-13 12:30:11.020413: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-13 12:30:11.020475: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-04-13 12:30:27.557399: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2022-04-13 12:30:27.558709: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-13 12:30:27.558757: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-13 12:30:27.558794: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (della-r4c4n13): /proc/driver/nvidia/version does not exist
+2022-04-13 12:30:27.559280: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-04-13 12:30:27.559398: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertForMaskedLM: ['embeddings.position_ids']
+- This IS expected if you are initializing TFBertForMaskedLM from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertForMaskedLM from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights or buffers of the TF 2.0 model TFBertForMaskedLM were not initialized from the PyTorch model and are newly initialized: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Processing Corpus: zuco
+Traceback (most recent call last):
+  File "extract_all.py", line 81, in <module>
+    tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, cache_dir="./cache")
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/transformers/models/auto/tokenization_auto.py", line 385, in from_pretrained
+    return tokenizer_class_fast.from_pretrained(pretrained_model_name_or_path, *inputs, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/transformers/tokenization_utils_base.py", line 1738, in from_pretrained
+    resolved_vocab_files[file_id] = cached_path(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/transformers/file_utils.py", line 1048, in cached_path
+    output_path = get_from_cache(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/transformers/file_utils.py", line 1234, in get_from_cache
+    raise ValueError(
+ValueError: Connection error, and we cannot find the requested files in the cached path. Please try again or make sure your Internet connection is on.

@@ -39,6 +39,7 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text):
                 tape.watch(token_ids_tensor_one_hot)
                 inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
                 predict = model({"inputs_embeds": inputs_embeds}).logits
+
                 predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
             # compute the sensitivity and take l2 norm
