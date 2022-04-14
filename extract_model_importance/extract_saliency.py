@@ -1,14 +1,10 @@
-
-
-
 import numpy as np
 import tensorflow as tf
 import scipy.special
 
-
-
-# The code for calculating sensitivity is based on the integrated gradients method
-def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 100, batch_size = 10):
+# The code for calculating sensitivity is based on the TextualHeatmap example by Andreas Madsen: https://colab.research.google.com/github/AndreasMadsen/python-textualheatmap/blob/master/notebooks/huggingface_bert_example.ipynb#scrollTo=X8GJbpoUmYdT
+# As described in [Andreas Madsen's distill paper](https://distill.pub/2019/memorization-in-rnns/), the saliency map is computed by measuring the gradient magnitude of the output w.r.t. the input.
+def compute_sensitivity(model, embedding_matrix, tokenizer, text):
     token_ids = tokenizer.encode(text, add_special_tokens=True)
     vocab_size = embedding_matrix.get_shape()[0]
     sensitivity_data = []
@@ -35,41 +31,16 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 100
             output_mask[0, masked_token_index, token_ids[masked_token_index]] = 1
             output_mask_tensor = tf.constant(output_mask, dtype='float32')
             
-            #number of steps for integrated gradients
-            sensitivity_non_normalized = None
-            x_step_batch = []
-            
-            for alpha in np.linspace(0, 1, nsamples):
             # Compute gradient of the logits of the correct target, w.r.t. the input
-              with tf.GradientTape(watch_accessed_variables=False) as tape:
-                  tape.watch(token_ids_tensor_one_hot)
-                
-                        # tape.watch(token_ids_tensor_one_hot)
-                  inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
-                  baseline = tf.zeros_like(inputs_embeds)
-                  x_diff = inputs_embeds - baseline
-                  x_step = baseline + alpha * x_diff
-                  predict = model({"inputs_embeds": x_step }).logits
-                  predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
-                  x_step_batch.append(predict_mask_correct_token)
-                  
-                  
-                  # print("here", tape.gradient(tf.stack(x_step_batch, axis = 0), token_ids_tensor_one_hot))
-                  if len(x_step_batch) == batch_size or (alpha == 1 and len(x_step_batch) > 0):
+            with tf.GradientTape(watch_accessed_variables=False) as tape:
+                tape.watch(token_ids_tensor_one_hot)
+                inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
+                predict = model({"inputs_embeds": inputs_embeds}).logits
 
+                predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
-                    # compute the sensitivity and take l2 norm
-                    if sensitivity_non_normalized == None:
-                      grad = tape.gradient(tf.stack(x_step_batch, axis = 0), token_ids_tensor_one_hot)
-                      sensitivity_non_normalized = tf.reduce_sum(grad, axis = 0, keepdims = True) 
-                    else:
-                      grad = tape.gradient(tf.stack(x_step_batch, axis = 0), token_ids_tensor_one_hot)
-                      sensitivity_non_normalized += tf.reduce_sum(grad, axis = 0, keepdims = True)
-
-                    x_step_batch = []
-
-            sensitivity_non_normalized /= nsamples
-            sensitivity_non_normalized = tf.norm(sensitivity_non_normalized, axis = 2)
+            # compute the sensitivity and take l2 norm
+            sensitivity_non_normalized = tf.norm(tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot), axis=2)
 
             # Normalize by the max
             sensitivity_tensor = (sensitivity_non_normalized / tf.reduce_max(sensitivity_non_normalized))
@@ -93,6 +64,3 @@ def extract_relative_saliency(model, embeddings,tokenizer, sentence):
     # It can be useful to scale the salience signal to the same range as the human attention
     # saliency = scipy.special.softmax(saliency)
     return tokens, saliency
-
-
-
