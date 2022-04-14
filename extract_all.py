@@ -1,6 +1,6 @@
 from transformers import TFBertForMaskedLM, BertTokenizer, TFDistilBertForMaskedLM, DistilBertTokenizer, TFAlbertForMaskedLM, AlbertTokenizer
 from extract_model_importance.extract_attention import extract_attention
-from extract_model_importance.extract_saliency_smoothgrad import extract_relative_saliency
+from extract_model_importance.extract_saliency import extract_relative_saliency
 from extract_model_importance import tokenization_util
 from extract_human_fixations import data_extractor_geco, data_extractor_zuco
 
@@ -40,8 +40,8 @@ def extract_all_human_importance(corpus):
 
 #corpora = ["geco", "zuco"]
 #models = ["distil", "albert","bert"]
-models = ["distil"]
-corpora = ["zuco"]
+models = ["bert"]
+corpora = ["geco"]
 
 
 for corpus in corpora:
@@ -70,7 +70,7 @@ for corpus in corpora:
             tokenizer = DistilBertTokenizer.from_pretrained(MODEL_NAME)
             embeddings = model.distilbert.embeddings.word_embeddings
 
-        outfile = "results_smoothgrad/" + corpus + "_" + modelname + "_sg_"
+        outfile = "results_integrated/" + corpus + "_" + modelname + "_ig_"
 
         # print("Extracting attention for " + modelname)
         # extract_all_attention(model, tokenizer, sentences, outfile+ "attention.txt")
