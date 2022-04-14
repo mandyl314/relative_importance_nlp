@@ -20,7 +20,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
     raise NewConnectionError(
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14f6d30f5610>: Failed to establish a new connection: [Errno -2] Name or service not known
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14fe2a839460>: Failed to establish a new connection: [Errno -2] Name or service not known
 
 During handling of the above exception, another exception occurred:
 
@@ -31,7 +31,7 @@ Traceback (most recent call last):
     retries = retries.increment(
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14f6d30f5610>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fe2a839460>: Failed to establish a new connection: [Errno -2] Name or service not known'))
 
 During handling of the above exception, another exception occurred:
 
@@ -60,52 +60,18 @@ Traceback (most recent call last):
     r = adapter.send(request, **kwargs)
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
     raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14f6d30f5610>: Failed to establish a new connection: [Errno -2] Name or service not known'))
-2022-04-04 11:46:31.011099: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
-2022-04-04 11:46:31.011148: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2022-04-04 11:46:36.453961: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
-2022-04-04 11:46:36.454987: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
-2022-04-04 11:46:36.455019: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
-2022-04-04 11:46:36.455053: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (della-r4c3n2): /proc/driver/nvidia/version does not exist
-2022-04-04 11:46:36.455389: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14fe2a839460>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+2022-04-13 22:22:22.315651: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory
+2022-04-13 22:22:22.315708: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2022-04-13 22:22:32.544014: I tensorflow/compiler/jit/xla_cpu_device.cc:41] Not creating XLA devices, tf_xla_enable_xla_devices not set
+2022-04-13 22:22:32.544934: W tensorflow/stream_executor/platform/default/dso_loader.cc:60] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory
+2022-04-13 22:22:32.544968: W tensorflow/stream_executor/cuda/cuda_driver.cc:326] failed call to cuInit: UNKNOWN ERROR (303)
+2022-04-13 22:22:32.544998: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (della-r4c4n13): /proc/driver/nvidia/version does not exist
+2022-04-13 22:22:32.545475: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
 To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2022-04-04 11:46:36.455506: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
-2022-04-04 11:46:36.471844: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
-All model checkpoint layers were used when initializing TFAlbertForMaskedLM.
-
-All the layers of TFAlbertForMaskedLM were initialized from the model checkpoint at albert-base-v2.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use TFAlbertForMaskedLM for predictions without further training.
-All model checkpoint layers were used when initializing TFAlbertForMaskedLM.
-
-All the layers of TFAlbertForMaskedLM were initialized from the model checkpoint at albert-base-v2.
-If your task is similar to the task the model of the checkpoint was trained on, you can already use TFAlbertForMaskedLM for predictions without further training.
-Processing Corpus: geco
-Extracting attention for albert
-0 4926
-500 4926
-1000 4926
-1500 4926
-2000 4926
-2500 4926
-3000 4926
-3500 4926
-4000 4926
-4500 4926
-Extracting saliency for albert
-0 4926
-500 4926
-1000 4926
-1500 4926
-2000 4926
-2500 4926
-3000 4926
-3500 4926
-4000 4926
-4500 4926
-Processing Corpus: zuco
-Extracting attention for albert
-0 924
-500 924
-Extracting saliency for albert
-0 924
-500 924
+2022-04-13 22:22:32.545604: I tensorflow/compiler/jit/xla_gpu_device.cc:99] Not creating XLA devices, tf_xla_enable_xla_devices not set
+Some weights of the PyTorch model were not used when initializing the TF 2.0 model TFBertForMaskedLM: ['embeddings.position_ids']
+- This IS expected if you are initializing TFBertForMaskedLM from a PyTorch model trained on another task or with another architecture (e.g. initializing a TFBertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing TFBertForMaskedLM from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights or buffers of the TF 2.0 model TFBertForMaskedLM were not initialized from the PyTorch model and are newly initialized: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.

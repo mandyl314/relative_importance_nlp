@@ -1,0 +1,50 @@
+Model Importance: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &   model &  mean\_correlation &  std\_correlation \\
+\midrule
+0  &        saliency &   geco &    bert &          0.535573 &         0.383314 \\
+1  &        saliency &   geco &  albert &          0.466809 &         0.402317 \\
+2  &        saliency &   geco &  distil &          0.506107 &         0.389722 \\
+3  &       attention &   geco &    bert &          0.182515 &         0.438821 \\
+4  &       attention &   geco &  albert &          0.255503 &         0.440576 \\
+5  &       attention &   geco &  distil &          0.060039 &         0.449265 \\
+6  &        saliency &   zuco &    bert &          0.679702 &         0.206418 \\
+7  &        saliency &   zuco &  albert &          0.598525 &         0.224937 \\
+8  &        saliency &   zuco &  distil &          0.642896 &         0.220606 \\
+9  &       attention &   zuco &    bert &          0.114237 &         0.327751 \\
+10 &       attention &   zuco &  albert &          0.368908 &         0.277830 \\
+11 &       attention &   zuco &  distil &          0.029609 &         0.344526 \\
+\bottomrule
+\end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &   model &  mean\_correlation &  std\_correlation \\
+\midrule
+0  &        saliency &   geco &    bert &         -0.000021 &         0.045331 \\
+1  &        saliency &   geco &  albert &          0.000414 &         0.044929 \\
+2  &        saliency &   geco &  distil &          0.000647 &         0.045910 \\
+3  &       attention &   geco &    bert &         -0.000336 &         0.044711 \\
+4  &       attention &   geco &  albert &          0.000286 &         0.045586 \\
+5  &       attention &   geco &  distil &         -0.000075 &         0.044567 \\
+6  &        saliency &   zuco &    bert &          0.000137 &         0.032416 \\
+7  &        saliency &   zuco &  albert &         -0.000029 &         0.030400 \\
+8  &        saliency &   zuco &  distil &         -0.001525 &         0.033505 \\
+9  &       attention &   zuco &    bert &          0.000882 &         0.031277 \\
+10 &       attention &   zuco &  albert &         -0.000584 &         0.033762 \\
+11 &       attention &   zuco &  distil &         -0.000290 &         0.032718 \\
+\bottomrule
+\end{tabular}
+
+
+Len-Freq Baselines: 
+\begin{tabular}{lllll}
+\toprule
+Empty DataFrame
+Columns: Index(['corpus', 'baseline\_type', 'mean\_correlation', 'std\_correlation'], dtype='object')
+Index: Index([], dtype='object') \\
+\bottomrule
+\end{tabular}
