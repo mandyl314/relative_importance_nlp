@@ -61,3 +61,225 @@ Traceback (most recent call last):
   File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
     raise ConnectionError(e, request=request)
 requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x1473994375e0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+geco
+saliency
+4926
+4926
+HERE
+4926
+4926
+geco minilm
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.35098183023121726 0.4197339295639545
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+4926
+4926
+HERE
+4926
+4926
+geco tinybert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.4943743623306864 0.3859186535865655
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.04
+---------------
+
+attention
+4926
+4926
+HERE
+4926
+4926
+geco minilm
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.36923141376063773 0.3957579544320226
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.04
+---------------
+
+4926
+4926
+HERE
+4926
+4926
+geco tinybert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.4027757750606405 0.39056371692766617
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.04
+---------------
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm          0.350982         0.419734
+1        saliency   geco  tinybert          0.494374         0.385919
+2       attention   geco    minilm          0.369231         0.395758
+3       attention   geco  tinybert          0.402776         0.390564
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm         -0.000494         0.045730
+1        saliency   geco  tinybert         -0.000188         0.044606
+2       attention   geco    minilm          0.001348         0.044309
+3       attention   geco  tinybert         -0.000031         0.044947
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+
+zuco
+saliency
+924
+924
+HERE
+924
+924
+zuco minilm
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.5556805186362855 0.26045317238659027
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+924
+924
+HERE
+924
+924
+zuco tinybert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.6157744292520176 0.22050993089745904
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.03
+---------------
+
+attention
+924
+924
+HERE
+924
+924
+zuco minilm
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.40562968856235926 0.26442553283658415
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+924
+924
+HERE
+924
+924
+zuco tinybert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.5221513141568237 0.2592231494002524
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm          0.350982         0.419734
+1        saliency   geco  tinybert          0.494374         0.385919
+2       attention   geco    minilm          0.369231         0.395758
+3       attention   geco  tinybert          0.402776         0.390564
+4        saliency   zuco    minilm          0.555681         0.260453
+5        saliency   zuco  tinybert          0.615774         0.220510
+6       attention   zuco    minilm          0.405630         0.264426
+7       attention   zuco  tinybert          0.522151         0.259223
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm         -0.000494         0.045730
+1        saliency   geco  tinybert         -0.000188         0.044606
+2       attention   geco    minilm          0.001348         0.044309
+3       attention   geco  tinybert         -0.000031         0.044947
+4        saliency   zuco    minilm          0.001440         0.031853
+5        saliency   zuco  tinybert         -0.001287         0.033041
+6       attention   zuco    minilm          0.001343         0.032544
+7       attention   zuco  tinybert          0.000396         0.032162
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+

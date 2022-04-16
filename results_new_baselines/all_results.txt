@@ -1,0 +1,49 @@
+Model Importance: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &     model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &    minilm &          0.350982 &         0.419734 \\
+1 &        saliency &   geco &  tinybert &          0.494374 &         0.385919 \\
+2 &       attention &   geco &    minilm &          0.369231 &         0.395758 \\
+3 &       attention &   geco &  tinybert &          0.402776 &         0.390564 \\
+4 &        saliency &   zuco &    minilm &          0.555681 &         0.260453 \\
+5 &        saliency &   zuco &  tinybert &          0.615774 &         0.220510 \\
+6 &       attention &   zuco &    minilm &          0.405630 &         0.264426 \\
+7 &       attention &   zuco &  tinybert &          0.522151 &         0.259223 \\
+\bottomrule
+\end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &     model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &    minilm &         -0.000494 &         0.045730 \\
+1 &        saliency &   geco &  tinybert &         -0.000188 &         0.044606 \\
+2 &       attention &   geco &    minilm &          0.001348 &         0.044309 \\
+3 &       attention &   geco &  tinybert &         -0.000031 &         0.044947 \\
+4 &        saliency &   zuco &    minilm &          0.001440 &         0.031853 \\
+5 &        saliency &   zuco &  tinybert &         -0.001287 &         0.033041 \\
+6 &       attention &   zuco &    minilm &          0.001343 &         0.032544 \\
+7 &       attention &   zuco &  tinybert &          0.000396 &         0.032162 \\
+\bottomrule
+\end{tabular}
+
+
+Len-Freq Baselines: 
+\begin{tabular}{lllrr}
+\toprule
+{} & corpus & baseline\_type &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &   geco &        length &          0.690720 &         0.304413 \\
+1 &   geco &     frequency &         -0.358574 &         0.436031 \\
+2 &   geco &        length &          0.690720 &         0.304413 \\
+3 &   geco &     frequency &         -0.358574 &         0.436031 \\
+4 &   zuco &        length &          0.748224 &         0.192749 \\
+5 &   zuco &     frequency &         -0.522397 &         0.279737 \\
+6 &   zuco &        length &          0.748224 &         0.192749 \\
+7 &   zuco &     frequency &         -0.522397 &         0.279737 \\
+\bottomrule
+\end{tabular}
