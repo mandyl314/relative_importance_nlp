@@ -37,10 +37,16 @@ def extract_model_importance(dataset, model, importance_type):
 
             # remove CLR and SEP tokens, this is an experimental choice
             lm_tokens.append(tokens[1:-1])
-            salience = salience[1:-1]
+            if importance_type == "attention":
+                salience = salience[:, 1:-1]
+            else:
+                salience = salience[1:-1]
 
             # Apply softmax over remaining tokens to get relative importance
-            salience = scipy.special.softmax(salience)
+            if importance_type == "attention":
+                salience = scipy.special.softmax(salience, axis = 1)
+            else:
+                salience = scipy.special.softmax(salience)
             lm_salience.append(salience)
 
     return lm_tokens, lm_salience

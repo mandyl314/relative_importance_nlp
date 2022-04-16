@@ -17,6 +17,7 @@ def extract_all_attention(model, tokenizer, sentences, outfile):
             tokens, relative_attention = extract_attention(model, tokenizer, sentence)
 
         # merge word pieces if necessary
+
             tokens, merged_attention = tokenization_util.merge_subwords(tokens, relative_attention)
             tokens, merged_attention = tokenization_util.merge_hyphens(tokens, merged_attention)
             attention_file.write(str(tokens) + "\t" + str(merged_attention) + "\n")
@@ -93,7 +94,10 @@ for corpus in corpora:
         outfile = "results_smoothgrad/" + corpus + "_" + modelname + "_sg_"
 
         # print("Extracting attention for " + modelname)
-        # extract_all_attention(model, tokenizer, sentences, outfile+ "attention.txt")
+        for layer, _  in enumerate(model.layers):
+            extract_all_attention(model, tokenizer, sentences, outfile+ "layer_" + str(layer) + "_attention.txt", layer = layer)
+        for head in range(12):
+            extract_all_attention(model, tokenizer, sentences, outfile+ "head_" + str(head) + "_attention.txt", head = head)
 
         # Note: Saliency calculation takes much longer than attention calculation.
         print("Extracting saliency for " + modelname)

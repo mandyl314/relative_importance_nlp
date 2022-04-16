@@ -15,18 +15,26 @@ def get_attention_for_sentence(model, tokenizer, sentence):
     return tokens, attention
 
 # For the attention baseline, we fixed several experimental choices (see below) which might affect the results.
-def calculate_relative_attention( tokens, attention):
-    # We use the last layer as Sood et al. 2020
-    layer = len(attention)-1
+def calculate_relative_attention( tokens, attention, layer = None, head = None):
+    # We use all layers
+
+    if head:
+        layer = len(attention) - 1
+        attention = attention[layer][0]
+        attention = attention[head][1:-1]
+        sum_attention = np.sum(attention, axis = 0)
+        relative_attention = scipy.special.softmax(sum_attention)
+        return tokens, relative_attention
+
 
     # We use the first element of the batch because batch size is 1
     attention = attention[layer][0]
     
     # 1. We take the mean over the 12 attention heads (like Abnar & Zuidema 2020)
-    # I also tried the sum once, but the result was even worse
+    # (for each latter)
     mean_attention = np.mean(attention, axis=0)
 
-    # We drop CLS and SEP tokens
+    # We drop CLS and SEP tokens for all layers
     mean_attention = mean_attention[1:-1]
 
     # Optional: make plot to examine
@@ -42,9 +50,9 @@ def calculate_relative_attention( tokens, attention):
 
     return tokens, relative_attention
 
-def extract_attention(model, tokenizer, sentence):
+def extract_attention(model, tokenizer, sentence, layer = None, head = None):
 
     tokens, attention = get_attention_for_sentence(model, tokenizer, sentence)
-    tokens, relative_attention = calculate_relative_attention(tokens, attention)
+    tokens, relative_attention = calculate_relative_attention(tokens, attention, layer, head)
 
     return tokens, relative_attention

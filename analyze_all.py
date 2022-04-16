@@ -23,23 +23,58 @@ def extract_human_importance(dataset):
 
 
 # Importance type is either "saliency" or "attention"
-def extract_model_importance(dataset, model, importance_type):
+def extract_model_importance(dataset, model, importance_type, layer = None, head = None):
     lm_tokens = []
     lm_salience = []
-    with open("results_reproduced/" + dataset + "_" + model + "__reproduced_" + importance_type + ".txt", "r") as f:
-        for line in f.read().splitlines():
-            tokens, heat = line.split("\t")
 
-            tokens = list(literal_eval(tokens))
-            salience = np.array(literal_eval(heat))
+    if importance_type == "attention":
+        if layer:
+            with open("results_reproduced/" + dataset + "_" + model + "__reproduced_" + "layer_" + str(layer) + "_" + importance_type + ".txt", "r") as f:
+                for line in f.read().splitlines():
+                    tokens, heat = line.split("\t")
 
-            # remove CLR and SEP tokens, this is an experimental choice
-            lm_tokens.append(tokens[1:-1])
-            salience = salience[1:-1]
+                    tokens = list(literal_eval(tokens))
+                    salience = np.array(literal_eval(heat))
 
-            # Apply softmax over remaining tokens to get relative importance
-            salience = scipy.special.softmax(salience)
-            lm_salience.append(salience)
+                    # remove CLR and SEP tokens, this is an experimental choice
+                    lm_tokens.append(tokens[1:-1])
+                    salience = salience[1:-1]
+
+                    # Apply softmax over remaining tokens to get relative importance
+                    salience = scipy.special.softmax(salience)
+                    lm_salience.append(salience)
+        else:
+            with open("results_reproduced/" + dataset + "_" + model + "__reproduced_" + "head_" + str(head) + "_" + importance_type + ".txt", "r") as f:
+                for line in f.read().splitlines():
+                    tokens, heat = line.split("\t")
+
+                    tokens = list(literal_eval(tokens))
+                    salience = np.array(literal_eval(heat))
+
+                    # remove CLR and SEP tokens, this is an experimental choice
+                    lm_tokens.append(tokens[1:-1])
+                    salience = salience[1:-1]
+
+                    # Apply softmax over remaining tokens to get relative importance
+                    salience = scipy.special.softmax(salience)
+                    lm_salience.append(salience)
+
+
+    else:
+        with open("results_reproduced/" + dataset + "_" + model + "__reproduced_" + importance_type + ".txt", "r") as f:
+            for line in f.read().splitlines():
+                tokens, heat = line.split("\t")
+
+                tokens = list(literal_eval(tokens))
+                salience = np.array(literal_eval(heat))
+
+                # remove CLR and SEP tokens, this is an experimental choice
+                lm_tokens.append(tokens[1:-1])
+                salience = salience[1:-1]
+
+                # Apply softmax over remaining tokens to get relative importance
+                salience = scipy.special.softmax(salience)
+                lm_salience.append(salience)
 
     return lm_tokens, lm_salience
 
@@ -113,17 +148,21 @@ for corpus in corpora:
         print(importance_type)
 
         for model in models:
-            lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
 
-            # Model Correlation
-            spearman_mean, spearman_std = compare_importance(et_tokens, human_importance, lm_tokens, lm_importance, importance_type)
-            results = results.append( {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std}, ignore_index=True)
+            if importance_type == "attention":
 
-            #Permutation Baseline
-            spearman_mean, spearman_std = calculate_permutation_baseline(human_importance, lm_importance)
-            permutation_results = permutation_results.append(
-                {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std},
-                ignore_index=True)
+                for layer, _ 
+                lm_tokens, lm_importance = extract_model_importance(corpus, model, importance_type)
+
+                # Model Correlation
+                spearman_mean, spearman_std = compare_importance(et_tokens, human_importance, lm_tokens, lm_importance, importance_type)
+                results = results.append( {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std}, ignore_index=True)
+
+                #Permutation Baseline
+                spearman_mean, spearman_std = calculate_permutation_baseline(human_importance, lm_importance)
+                permutation_results = permutation_results.append(
+                    {'importance_type': importance_type, 'corpus': corpus, 'model': model, 'mean_correlation': spearman_mean, 'std_correlation': spearman_std},
+                    ignore_index=True)
 
 
     # Store results
