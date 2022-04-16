@@ -75,3 +75,15 @@ Some weights of the PyTorch model were not used when initializing the TF 2.0 mod
 - This IS NOT expected if you are initializing TFBertForMaskedLM from a PyTorch model that you expect to be exactly identical (e.g. initializing a TFBertForSequenceClassification model from a BertForSequenceClassification model).
 Some weights or buffers of the TF 2.0 model TFBertForMaskedLM were not initialized from the PyTorch model and are newly initialized: ['cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.LayerNorm.bias']
 You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Processing Corpus: geco
+Extracting saliency for tinybert
+0 4926
+500 4926
+1000 4926
+1500 4926
+2000 4926
+2500 4926
+3000 4926
+3500 4926
+4000 4926
+4500 4926

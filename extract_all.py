@@ -43,15 +43,15 @@ def extract_all_human_importance(corpus):
 
 
 #corpora = ["geco", "zuco"]
-corpora = ["zuco"]
+corpora = ["geco"]
 #models = ["distil", "albert","bert"]
-models = ["bert"]
+models = ["distil"]
 
 
 for corpus in corpora:
     # We skip extraction of human importance here because it takes quite long.
     #extract_all_human_importance(corpus)
-    with open("results_new_baselines/" + corpus + "_sentences.txt", "r") as f:
+    with open("results_sg/" + corpus + "_sentences.txt", "r") as f:
         sentences = f.read().splitlines()
     print("Processing Corpus: " + corpus)
 
@@ -87,14 +87,21 @@ for corpus in corpora:
             tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
             # tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
             embeddings = model.bert.embeddings.word_embeddings
+        
+        if modelname == 'minilm2':
+            MODEL_NAME = 'microsoft/MiniLM-L12-H384-uncased'
+            model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
+            #tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+            tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+            embeddings = model.bert.embeddings.word_embeddings
 
 
         #outfile = "results_reproduced/" + corpus + "_" + modelname + "__reproduced_"
-        outfile = "results_smoothgrad/" + corpus + "_" + modelname + "_sg_"
+        outfile = "results_sg/" + corpus + "_" + modelname + "_sg_"
 
         # print("Extracting attention for " + modelname)
         # extract_all_attention(model, tokenizer, sentences, outfile+ "attention.txt")
 
-        # Note: Saliency calculation takes much longer than attention calculation.
+        #Note: Saliency calculation takes much longer than attention calculation.
         print("Extracting saliency for " + modelname)
         extract_all_saliency(model,  embeddings, tokenizer, sentences, outfile + "saliency.txt")

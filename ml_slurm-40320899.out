@@ -1,0 +1,749 @@
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 159, in _new_conn
+    conn = connection.create_connection(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/connection.py", line 61, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/socket.py", line 918, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 670, in urlopen
+    httplib_response = self._make_request(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 381, in _make_request
+    self._validate_conn(conn)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 976, in _validate_conn
+    conn.connect()
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 308, in connect
+    conn = self._new_conn()
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connection.py", line 171, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPSConnection object at 0x14e8fbf849a0>: Failed to establish a new connection: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 439, in send
+    resp = conn.urlopen(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/connectionpool.py", line 724, in urlopen
+    retries = retries.increment(
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/urllib3/util/retry.py", line 439, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14e8fbf849a0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/licensed/anaconda3/2020.11/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/__main__.py", line 33, in <module>
+    plac.call(commands[command], sys.argv[1:])
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/plac_core.py", line 367, in call
+    cmd, result = parser.consume(arglist)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/plac_core.py", line 232, in consume
+    return cmd, self.func(*(args + varargs + extraopts), **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/cli/download.py", line 44, in download
+    shortcuts = get_json(about.__shortcuts__, "available shortcuts")
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/spacy/cli/download.py", line 95, in get_json
+    r = requests.get(url)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/api.py", line 76, in get
+    return request('get', url, params=params, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/api.py", line 61, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/sessions.py", line 530, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/sessions.py", line 643, in send
+    r = adapter.send(request, **kwargs)
+  File "/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/requests/adapters.py", line 516, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='raw.githubusercontent.com', port=443): Max retries exceeded with url: /explosion/spacy-models/master/shortcuts-v2.json (Caused by NewConnectionError('<urllib3.connection.HTTPSConnection object at 0x14e8fbf849a0>: Failed to establish a new connection: [Errno -2] Name or service not known'))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/analysis/calculate_baselines.py:75: RuntimeWarning: Mean of empty slice
+  mean_sentence = np.nanmean(np.asarray(random_correlations))
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2559: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[:, None]
+/scratch/gpfs/mandyl/relative_importance/nlpenv/lib/python3.8/site-packages/numpy/lib/function_base.py:2560: RuntimeWarning: invalid value encountered in true_divide
+  c /= stddev[None, :]
+geco
+saliency
+4926
+4926
+HERE
+4926
+4926
+geco minilm
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.35098183023121726 0.4197339295639545
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.04
+---------------
+
+4926
+4926
+HERE
+4926
+4926
+geco tinybert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.4943743623306864 0.3859186535865655
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.05
+---------------
+
+attention
+4926
+4926
+HERE
+4926
+4926
+geco minilm
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.36923141376063773 0.3957579544320226
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+4926
+4926
+HERE
+4926
+4926
+geco tinybert
+Token alignment errors:  81
+Spearman Correlation Model: Mean, Stdev
+0.4027757750606405 0.39056371692766617
+
+
+
+
+---------------
+Permutation baseline: Mean: -0.00, stdev: 0.05
+---------------
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm          0.350982         0.419734
+1        saliency   geco  tinybert          0.494374         0.385919
+2       attention   geco    minilm          0.369231         0.395758
+3       attention   geco  tinybert          0.402776         0.390564
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm         -0.000320         0.044573
+1        saliency   geco  tinybert          0.000903         0.045618
+2       attention   geco    minilm         -0.000722         0.046045
+3       attention   geco  tinybert         -0.000099         0.045075
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+
+zuco
+saliency
+924
+924
+HERE
+924
+924
+zuco minilm
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.5556805186362855 0.26045317238659027
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+924
+924
+HERE
+924
+924
+zuco tinybert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.6157744292520176 0.22050993089745904
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+attention
+924
+924
+HERE
+924
+924
+zuco minilm
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.40562968856235926 0.26442553283658415
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+924
+924
+HERE
+924
+924
+zuco tinybert
+Token alignment errors:  71
+Spearman Correlation Model: Mean, Stdev
+0.5221513141568237 0.2592231494002524
+
+
+
+
+---------------
+Permutation baseline: Mean: 0.00, stdev: 0.03
+---------------
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm          0.350982         0.419734
+1        saliency   geco  tinybert          0.494374         0.385919
+2       attention   geco    minilm          0.369231         0.395758
+3       attention   geco  tinybert          0.402776         0.390564
+4        saliency   zuco    minilm          0.555681         0.260453
+5        saliency   zuco  tinybert          0.615774         0.220510
+6       attention   zuco    minilm          0.405630         0.264426
+7       attention   zuco  tinybert          0.522151         0.259223
+
+  importance_type corpus     model  mean_correlation  std_correlation
+0        saliency   geco    minilm         -0.000320         0.044573
+1        saliency   geco  tinybert          0.000903         0.045618
+2       attention   geco    minilm         -0.000722         0.046045
+3       attention   geco  tinybert         -0.000099         0.045075
+4        saliency   zuco    minilm          0.002168         0.032870
+5        saliency   zuco  tinybert          0.001307         0.033747
+6       attention   zuco    minilm          0.000406         0.031697
+7       attention   zuco  tinybert          0.002024         0.032781
+
+Empty DataFrame
+Columns: [corpus, baseline_type, mean_correlation, std_correlation]
+Index: []
+
+Overall correlation: 
+Human - Length
+0.3056824570689404
+Model - Length
+0.06117940336529536
+       Frequency  Importance dataset
+0       0.058900    0.002552   Model
+1       0.000027    0.003796   Model
+2       0.000170    0.003602   Model
+3       0.000001    0.003159   Model
+4       0.019500    0.000834   Model
+...          ...         ...     ...
+54028   0.000029    0.023438   Human
+54029   0.000282    0.019798   Human
+54030   0.000501    0.019446   Human
+54031   0.002240    0.019822   Human
+54032   0.001290    0.020444   Human
+
+[107886 rows x 3 columns]
+Overall correlation: 
+Human - Frequency
+-0.2495729464657677
+Model - Frequency
+-0.1380485950129305
+---------------
+Length Baseline
+Spearman Correlation: Mean: 0.69, Stdev: 0.30
+---------------
+
+---------------
+Frequency Baseline
+Spearman Correlation: Mean: -0.36, Stdev: 0.44
+---------------
+
+Overall correlation: 
+Human - Length
+0.3056824570689404
+Model - Length
+0.22765060649168825
+       Frequency  Importance dataset
+0       0.058900    0.002552   Model
+1       0.000027    0.003796   Model
+2       0.000170    0.003602   Model
+3       0.000001    0.003159   Model
+4       0.019500    0.000834   Model
+...          ...         ...     ...
+54028   0.000029    0.127535   Human
+54029   0.000282    0.002832   Human
+54030   0.000501    0.001294   Human
+54031   0.002240    0.001606   Human
+54032   0.001290    0.005204   Human
+
+[107886 rows x 3 columns]
+Overall correlation: 
+Human - Frequency
+-0.2495729464657677
+Model - Frequency
+-0.2612508091317547
+---------------
+Length Baseline
+Spearman Correlation: Mean: 0.69, Stdev: 0.30
+---------------
+
+---------------
+Frequency Baseline
+Spearman Correlation: Mean: -0.36, Stdev: 0.44
+---------------
+
+Overall correlation: 
+Human - Length
+0.46868681193501477
+Model - Length
+0.16984756034827944
+       Frequency  Importance dataset
+0       0.000174    0.004135   Model
+1       0.022900    0.001205   Model
+2       0.001320    0.003165   Model
+3       0.000398    0.002433   Model
+4       0.000692    0.003473   Model
+...          ...         ...     ...
+16406   0.006310    0.020191   Human
+16407   0.022900    0.019339   Human
+16408   0.000012    0.023636   Human
+16409   0.000219    0.020424   Human
+16410   0.025700    0.019246   Human
+
+[32510 rows x 3 columns]
+Overall correlation: 
+Human - Frequency
+-0.35987217005188926
+Model - Frequency
+-0.19169217211606263
+---------------
+Length Baseline
+Spearman Correlation: Mean: 0.75, Stdev: 0.19
+---------------
+
+---------------
+Frequency Baseline
+Spearman Correlation: Mean: -0.52, Stdev: 0.28
+---------------
+
+Overall correlation: 
+Human - Length
+0.46868681193501477
+Model - Length
+0.249674957567092
+       Frequency  Importance dataset
+0       0.000174    0.004135   Model
+1       0.022900    0.001205   Model
+2       0.001320    0.003165   Model
+3       0.000398    0.002433   Model
+4       0.000692    0.003473   Model
+...          ...         ...     ...
+16406   0.006310    0.006222   Human
+16407   0.022900    0.002987   Human
+16408   0.000012    0.113767   Human
+16409   0.000219    0.008571   Human
+16410   0.025700    0.001892   Human
+
+[32510 rows x 3 columns]
+Overall correlation: 
+Human - Frequency
+-0.35987217005188926
+Model - Frequency
+-0.2665332294082285
+---------------
+Length Baseline
+Spearman Correlation: Mean: 0.75, Stdev: 0.19
+---------------
+
+---------------
+Frequency Baseline
+Spearman Correlation: Mean: -0.52, Stdev: 0.28
+---------------
+

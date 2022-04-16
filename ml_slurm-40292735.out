@@ -74,3 +74,7 @@ All model checkpoint layers were used when initializing TFBertForMaskedLM.
 
 All the layers of TFBertForMaskedLM were initialized from the model checkpoint at bert-base-uncased.
 If your task is similar to the task the model of the checkpoint was trained on, you can already use TFBertForMaskedLM for predictions without further training.
+Processing Corpus: zuco
+Extracting saliency for bert
+0 924
+500 924
