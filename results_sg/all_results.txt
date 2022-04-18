@@ -1,0 +1,28 @@
+Model Importance: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &   model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &    bert &          0.390161 &         0.429744 \\
+1 &        saliency &   geco &  albert &          0.453114 &         0.412040 \\
+2 &        saliency &   geco &  distil &          0.342076 &         0.438662 \\
+0 &        saliency &   zuco &  albert &          0.589473 &         0.237950 \\
+1 &        saliency &   zuco &  distil &          0.482817 &         0.290898 \\
+2 &        saliency &   zuco &    bert &          0.536134 &         0.274878 \\
+\bottomrule
+\end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus &   model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &    bert &         -0.001515 &         0.045592 \\
+1 &        saliency &   geco &  albert &          0.000090 &         0.044868 \\
+2 &        saliency &   geco &  distil &         -0.000049 &         0.045009 \\
+0 &        saliency &   zuco &  albert &         -0.001322 &         0.032062 \\
+1 &        saliency &   zuco &  distil &          0.000420 &         0.033957 \\
+2 &        saliency &   zuco &    bert &         -0.000694 &         0.031208 \\
+\bottomrule
+\end{tabular}

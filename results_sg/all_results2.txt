@@ -1,0 +1,19 @@
+
+
+Len-Freq Baselines: 
+\begin{tabular}{lllrr}
+\toprule
+{} & corpus & baseline\_type &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &   geco &        length &          0.690720 &         0.304413 \\
+1 &   geco &     frequency &         -0.358574 &         0.436031 \\
+2 &   geco &        length &          0.690720 &         0.304413 \\
+3 &   geco &     frequency &         -0.358574 &         0.436031 \\
+4 &   geco &        length &          0.690720 &         0.304413 \\
+5 &   geco &     frequency &         -0.358574 &         0.436031 \\
+6 &   zuco &        length &          0.748224 &         0.192749 \\
+7 &   zuco &     frequency &         -0.522397 &         0.279737 \\
+8 &   zuco &        length &          0.748224 &         0.192749 \\
+9 &   zuco &     frequency &         -0.522397 &         0.279737 \\
+\bottomrule
+\end{tabular}

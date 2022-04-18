@@ -1,6 +1,6 @@
 from transformers import TFBertForMaskedLM, BertTokenizer, TFDistilBertForMaskedLM, DistilBertTokenizer, TFAlbertForMaskedLM, AlbertTokenizer
 from extract_model_importance.extract_attention import extract_attention
-from extract_model_importance.extract_saliency_smoothgrad import extract_relative_saliency
+from extract_model_importance.extract_saliency_integrated import extract_relative_saliency
 from extract_model_importance import tokenization_util
 from extract_human_fixations import data_extractor_geco, data_extractor_zuco
 
@@ -43,15 +43,15 @@ def extract_all_human_importance(corpus):
 
 
 #corpora = ["geco", "zuco"]
-corpora = ["geco"]
+corpora = ["zuco"]
 #models = ["distil", "albert","bert"]
-models = ["distil"]
+models = ["bert"]
 
 
 for corpus in corpora:
     # We skip extraction of human importance here because it takes quite long.
     #extract_all_human_importance(corpus)
-    with open("results_sg/" + corpus + "_sentences.txt", "r") as f:
+    with open("results_ig/" + corpus + "_sentences.txt", "r") as f:
         sentences = f.read().splitlines()
     print("Processing Corpus: " + corpus)
 
@@ -74,30 +74,36 @@ for corpus in corpora:
             embeddings = model.distilbert.embeddings.word_embeddings
 
         if modelname == "tinybert":
-            MODEL_NAME = 'sentence-transformers/paraphrase-TinyBERT-L6-v2'
-            #MODEL_NAME = 'huawei-noah/TinyBERT_General_4L_312D'
+            #MODEL_NAME = 'sentence-transformers/paraphrase-TinyBERT-L6-v2'
+            MODEL_NAME = 'cross-encoder/ms-marco-TinyBERT-L-2'
             model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
-            tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-            #tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME) -> doesn't work
+            tokenizer = AutoTokenizer.from_pretrained('./saved_tinybert/')
+
+            # run this locally first
+            # model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
+            # model.save_pretrained('./saved_tinybert/')
+            # tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+            # tokenizer.save_pretrained('./saved_tinybert/')
+
             embeddings = model.bert.embeddings.word_embeddings # check this
 
-        if modelname == "minilm":
-            MODEL_NAME = 'sentence-transformers/all-MiniLM-L6-v2'
-            model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
-            tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-            # tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-            embeddings = model.bert.embeddings.word_embeddings
-        
-        if modelname == 'minilm2':
+        if modelname == 'minilm':
             MODEL_NAME = 'microsoft/MiniLM-L12-H384-uncased'
+            #MODEL_NAME = 'cross-encoder/ms-marco-TinyBERT-L-2-v2'
             model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
-            #tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-            tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+            tokenizer = AutoTokenizer.from_pretrained('./saved_minilm/')
+
+            # run this locally first
+            # model = TFAutoModelForMaskedLM.from_pretrained(MODEL_NAME,output_attentions=True, from_pt=True)
+            # model.save_pretrained('./saved_minilm/')
+            # tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
+            # tokenizer.save_pretrained('./saved_minilm/')
+
             embeddings = model.bert.embeddings.word_embeddings
 
 
         #outfile = "results_reproduced/" + corpus + "_" + modelname + "__reproduced_"
-        outfile = "results_sg/" + corpus + "_" + modelname + "_sg_"
+        outfile = "results_ig/" + corpus + "_" + modelname + "_ig_"
 
         # print("Extracting attention for " + modelname)
         # extract_all_attention(model, tokenizer, sentences, outfile+ "attention.txt")
