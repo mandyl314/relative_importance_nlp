@@ -1,0 +1,122 @@
+Model Importance: 
+\begin{tabular}{lllllrr}
+\toprule
+{} & importance\_type & corpus &   model & layer/head &  mean\_correlation &  std\_correlation \\
+\midrule
+0  &       attention &   geco &  albert &    layer 0 &          0.235381 &         0.428266 \\
+1  &       attention &   geco &  albert &    layer 1 &          0.275063 &         0.451384 \\
+2  &       attention &   geco &  albert &    layer 2 &          0.253614 &         0.449181 \\
+3  &       attention &   geco &  albert &    layer 3 &          0.130326 &         0.462600 \\
+4  &       attention &   geco &  albert &    layer 4 &          0.195456 &         0.452611 \\
+5  &       attention &   geco &  albert &    layer 5 &          0.232248 &         0.445697 \\
+6  &       attention &   geco &  albert &    layer 6 &          0.255315 &         0.438474 \\
+7  &       attention &   geco &  albert &    layer 7 &          0.258766 &         0.435266 \\
+8  &       attention &   geco &  albert &    layer 8 &          0.275766 &         0.437208 \\
+9  &       attention &   geco &  albert &    layer 9 &          0.315184 &         0.434515 \\
+10 &       attention &   geco &  albert &   layer 10 &          0.371166 &         0.416161 \\
+11 &       attention &   geco &  albert &   layer 11 &          0.255503 &         0.440576 \\
+12 &       attention &   geco &  albert &     head 0 &          0.237134 &         0.434312 \\
+13 &       attention &   geco &  albert &     head 1 &          0.027880 &         0.447805 \\
+14 &       attention &   geco &  albert &     head 2 &          0.261650 &         0.424986 \\
+15 &       attention &   geco &  albert &     head 3 &          0.136991 &         0.439194 \\
+16 &       attention &   geco &  albert &     head 4 &          0.007957 &         0.444672 \\
+17 &       attention &   geco &  albert &     head 5 &          0.207224 &         0.428685 \\
+18 &       attention &   geco &  albert &     head 6 &          0.227322 &         0.433852 \\
+19 &       attention &   geco &  albert &     head 7 &          0.018802 &         0.452584 \\
+20 &       attention &   geco &  albert &     head 8 &          0.295744 &         0.435448 \\
+21 &       attention &   geco &  albert &     head 9 &          0.040095 &         0.448348 \\
+22 &       attention &   geco &  albert &    head 10 &          0.136586 &         0.451894 \\
+23 &       attention &   geco &  albert &    head 11 &          0.027525 &         0.448872 \\
+24 &       attention &   zuco &  albert &    layer 0 &          0.280113 &         0.305554 \\
+25 &       attention &   zuco &  albert &    layer 1 &          0.371328 &         0.276256 \\
+26 &       attention &   zuco &  albert &    layer 2 &          0.286109 &         0.310635 \\
+27 &       attention &   zuco &  albert &    layer 3 &          0.238936 &         0.316717 \\
+28 &       attention &   zuco &  albert &    layer 4 &          0.238227 &         0.299222 \\
+29 &       attention &   zuco &  albert &    layer 5 &          0.231741 &         0.304411 \\
+30 &       attention &   zuco &  albert &    layer 6 &          0.242860 &         0.296556 \\
+31 &       attention &   zuco &  albert &    layer 7 &          0.258602 &         0.296305 \\
+32 &       attention &   zuco &  albert &    layer 8 &          0.279679 &         0.293059 \\
+33 &       attention &   zuco &  albert &    layer 9 &          0.333578 &         0.282870 \\
+34 &       attention &   zuco &  albert &   layer 10 &          0.413557 &         0.268279 \\
+35 &       attention &   zuco &  albert &   layer 11 &          0.368908 &         0.277830 \\
+36 &       attention &   zuco &  albert &     head 0 &          0.424364 &         0.270636 \\
+37 &       attention &   zuco &  albert &     head 1 &          0.008199 &         0.317735 \\
+38 &       attention &   zuco &  albert &     head 2 &          0.418907 &         0.264409 \\
+39 &       attention &   zuco &  albert &     head 3 &          0.300977 &         0.291664 \\
+40 &       attention &   zuco &  albert &     head 4 &          0.089288 &         0.325214 \\
+41 &       attention &   zuco &  albert &     head 5 &          0.296198 &         0.300541 \\
+42 &       attention &   zuco &  albert &     head 6 &          0.207726 &         0.292066 \\
+43 &       attention &   zuco &  albert &     head 7 &          0.244605 &         0.315411 \\
+44 &       attention &   zuco &  albert &     head 8 &          0.450035 &         0.264973 \\
+45 &       attention &   zuco &  albert &     head 9 &          0.097378 &         0.343524 \\
+46 &       attention &   zuco &  albert &    head 10 &          0.120918 &         0.329623 \\
+47 &       attention &   zuco &  albert &    head 11 &          0.073550 &         0.331950 \\
+\bottomrule
+\end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{lllllrr}
+\toprule
+{} & importance\_type & corpus &   model & layer/head &  mean\_correlation &  std\_correlation \\
+\midrule
+0  &       attention &   geco &  albert &    layer 0 &          0.000483 &         0.044345 \\
+1  &       attention &   geco &  albert &    layer 1 &         -0.000358 &         0.045043 \\
+2  &       attention &   geco &  albert &    layer 2 &          0.000135 &         0.044583 \\
+3  &       attention &   geco &  albert &    layer 3 &         -0.000722 &         0.044490 \\
+4  &       attention &   geco &  albert &    layer 4 &          0.000763 &         0.045337 \\
+5  &       attention &   geco &  albert &    layer 5 &         -0.002528 &         0.044801 \\
+6  &       attention &   geco &  albert &    layer 6 &          0.000623 &         0.045158 \\
+7  &       attention &   geco &  albert &    layer 7 &         -0.000669 &         0.046327 \\
+8  &       attention &   geco &  albert &    layer 8 &         -0.000219 &         0.044515 \\
+9  &       attention &   geco &  albert &    layer 9 &          0.000146 &         0.044565 \\
+10 &       attention &   geco &  albert &   layer 10 &         -0.000844 &         0.043911 \\
+11 &       attention &   geco &  albert &   layer 11 &         -0.001059 &         0.045078 \\
+12 &       attention &   geco &  albert &     head 0 &          0.000300 &         0.044529 \\
+13 &       attention &   geco &  albert &     head 1 &         -0.000490 &         0.044694 \\
+14 &       attention &   geco &  albert &     head 2 &         -0.000975 &         0.044142 \\
+15 &       attention &   geco &  albert &     head 3 &          0.000234 &         0.044113 \\
+16 &       attention &   geco &  albert &     head 4 &         -0.000594 &         0.044645 \\
+17 &       attention &   geco &  albert &     head 5 &          0.000030 &         0.045229 \\
+18 &       attention &   geco &  albert &     head 6 &         -0.000464 &         0.045108 \\
+19 &       attention &   geco &  albert &     head 7 &          0.000434 &         0.044843 \\
+20 &       attention &   geco &  albert &     head 8 &         -0.000527 &         0.045418 \\
+21 &       attention &   geco &  albert &     head 9 &          0.000325 &         0.045050 \\
+22 &       attention &   geco &  albert &    head 10 &          0.000839 &         0.044418 \\
+23 &       attention &   geco &  albert &    head 11 &         -0.000721 &         0.045224 \\
+24 &       attention &   zuco &  albert &    layer 0 &          0.001214 &         0.032811 \\
+25 &       attention &   zuco &  albert &    layer 1 &         -0.000649 &         0.034315 \\
+26 &       attention &   zuco &  albert &    layer 2 &          0.000268 &         0.032006 \\
+27 &       attention &   zuco &  albert &    layer 3 &         -0.000080 &         0.031022 \\
+28 &       attention &   zuco &  albert &    layer 4 &          0.000297 &         0.034341 \\
+29 &       attention &   zuco &  albert &    layer 5 &         -0.002703 &         0.032596 \\
+30 &       attention &   zuco &  albert &    layer 6 &         -0.000164 &         0.032280 \\
+31 &       attention &   zuco &  albert &    layer 7 &         -0.000051 &         0.033008 \\
+32 &       attention &   zuco &  albert &    layer 8 &         -0.001751 &         0.034327 \\
+33 &       attention &   zuco &  albert &    layer 9 &          0.000075 &         0.034619 \\
+34 &       attention &   zuco &  albert &   layer 10 &         -0.001202 &         0.030731 \\
+35 &       attention &   zuco &  albert &   layer 11 &          0.001165 &         0.030958 \\
+36 &       attention &   zuco &  albert &     head 0 &         -0.002230 &         0.031079 \\
+37 &       attention &   zuco &  albert &     head 1 &          0.001153 &         0.031933 \\
+38 &       attention &   zuco &  albert &     head 2 &         -0.000219 &         0.030742 \\
+39 &       attention &   zuco &  albert &     head 3 &         -0.000584 &         0.033153 \\
+40 &       attention &   zuco &  albert &     head 4 &          0.000309 &         0.030850 \\
+41 &       attention &   zuco &  albert &     head 5 &         -0.000801 &         0.034453 \\
+42 &       attention &   zuco &  albert &     head 6 &         -0.000558 &         0.032339 \\
+43 &       attention &   zuco &  albert &     head 7 &          0.000419 &         0.034365 \\
+44 &       attention &   zuco &  albert &     head 8 &          0.001938 &         0.032343 \\
+45 &       attention &   zuco &  albert &     head 9 &         -0.000972 &         0.033323 \\
+46 &       attention &   zuco &  albert &    head 10 &          0.002157 &         0.031188 \\
+47 &       attention &   zuco &  albert &    head 11 &         -0.000115 &         0.031762 \\
+\bottomrule
+\end{tabular}
+
+
+Len-Freq Baselines: 
+\begin{tabular}{lllll}
+\toprule
+Empty DataFrame
+Columns: Index(['corpus', 'baseline\_type', 'mean\_correlation', 'std\_correlation'], dtype='object')
+Index: Index([], dtype='object') \\
+\bottomrule
+\end{tabular}

@@ -28,7 +28,6 @@ def calculate_relative_attention( tokens, attention, layer = None, head = None):
 
     # We use the first element of the batch because batch size is 1
     attention = attention[layer][0]
-    print(attention.shape)
     
     # 1. We take the mean over the 12 attention heads (like Abnar & Zuidema 2020)
     # (for each latter)

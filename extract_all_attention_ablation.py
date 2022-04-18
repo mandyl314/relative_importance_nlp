@@ -44,9 +44,9 @@ def extract_all_human_importance(corpus):
 
 
 #corpora = ["geco", "zuco"]
-corpora = ["zuco"]
+corpora = ["geco"]
 #models = ["distil", "albert","bert"]
-models = ["bert"]
+models = ["distil"]
 
 
 for corpus in corpora:
@@ -106,14 +106,21 @@ for corpus in corpora:
 
         # print("Extracting attention for " + modelname)
         #for layer, _  in enumerate(model.layers):
-        if model == "tinybert":
+        num_layers = 12
+        if model == "distil":
+            num_layers = 6
+        if model == "tinybert": 
             num_layers = 2
-        else:
-            num_layers = 12
+        
+        num_heads = 12
+        if model == "tinybert":
+            num_heads = 2
+            
         for layer in range (num_layers):
             extract_all_attention(model, tokenizer, sentences, outfile+ "layer_" + str(layer) + "_attention.txt", layer = layer)
-        # for head in range(12):
-        #     extract_all_attention(model, tokenizer, sentences, outfile+ "head_" + str(head) + "_attention.txt", head = head)
+        
+        for head in range(num_heads):
+            extract_all_attention(model, tokenizer, sentences, outfile+ "head_" + str(head) + "_attention.txt", head = head)
 
         # Note: Saliency calculation takes much longer than attention calculation.
         # print("Extracting saliency for " + modelname)
