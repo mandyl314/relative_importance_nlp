@@ -38,8 +38,9 @@ def extract_model_importance(dataset, model, importance_type):
             salience = np.array(literal_eval(heat))
 
             # remove CLR and SEP tokens, this is an experimental choice
-            lm_tokens.append(tokens[1:-1])
-            salience = salience[1:-1]
+            # lm_tokens.append(tokens[1:-1])
+            # salience = salience[1:-1]
+            lm_tokens.append(tokens)
 
             # Apply softmax over remaining tokens to get relative importance
             salience = scipy.special.softmax(salience)
