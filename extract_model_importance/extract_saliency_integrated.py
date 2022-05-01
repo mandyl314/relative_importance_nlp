@@ -6,9 +6,8 @@ import tensorflow as tf
 import scipy.special
 
 
-
 # The code for calculating sensitivity is based on the integrated gradients method
-def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 10):
+def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 25):
     token_ids = tokenizer.encode(text, add_special_tokens=True)
     vocab_size = embedding_matrix.get_shape()[0]
     sensitivity_data = []
@@ -36,25 +35,25 @@ def compute_sensitivity(model, embedding_matrix, tokenizer, text, nsamples = 10)
             output_mask_tensor = tf.constant(output_mask, dtype='float32')
             
             #number of steps for integrated gradients
-            sensitivity_non_normalized = None
-            for alpha in np.linspace(0, 1, nsamples):
+          
             # Compute gradient of the logits of the correct target, w.r.t. the input
-                with tf.GradientTape(watch_accessed_variables=False) as tape:
-                    tape.watch(token_ids_tensor_one_hot)
-                    inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
-                    baseline = tf.zeros_like(inputs_embeds)
-                    x_diff = inputs_embeds - baseline
-                    x_step = baseline + alpha * x_diff
-                    predict = model({"inputs_embeds": x_step }).logits
-                    predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
+            with tf.GradientTape(watch_accessed_variables=False) as tape:
+                tape.watch(token_ids_tensor_one_hot)
+                inputs_embeds = tf.matmul(token_ids_tensor_one_hot,embedding_matrix)
+                baseline = tf.zeros_like(inputs_embeds)
+                alphas = tf.linspace(start = 0.0, stop = 1.0, num = nsamples + 1)
+                alphas_x = alphas[:, tf.newaxis, tf.newaxis]
+                baseline_x = tf.expand_dims(baseline, axis = 0)
+                input_x = tf.expand_dims(inputs_embeds, axis = 0)
+                delta = input_x - baseline_x
+                interpolated_inputs = baseline_x + alphas_x * delta
+                predict = model({"inputs_embeds": tf.squeeze(interpolated_inputs, axis = 0) }).logits
+                predict_mask_correct_token = tf.reduce_sum(predict * output_mask_tensor)
 
             # compute the sensitivity and take l2 norm
-                if sensitivity_non_normalized == None:
-                    sensitivity_non_normalized = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
-                else:
-                    sensitivity_non_normalized += tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
-
-            sensitivity_non_normalized /= nsamples
+                
+            sensitivity_non_normalized = tape.gradient(predict_mask_correct_token, token_ids_tensor_one_hot)
+            sensitivity_non_normalized = tf.reduce_mean(sensitivity_non_normalized, axis = 0, keepdims = True)
             sensitivity_non_normalized = tf.norm(sensitivity_non_normalized, axis = 2)
 
             # Normalize by the max
@@ -79,6 +78,5 @@ def extract_relative_saliency(model, embeddings,tokenizer, sentence):
     # It can be useful to scale the salience signal to the same range as the human attention
     # saliency = scipy.special.softmax(saliency)
     return tokens, saliency
-
 
 

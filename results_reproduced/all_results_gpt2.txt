@@ -1,0 +1,20 @@
+Model Importance: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus & model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &  gpt2 &         -0.050879 &         0.458027 \\
+1 &        saliency &   zuco &  gpt2 &         -0.100748 &         0.410069 \\
+\bottomrule
+\end{tabular}
+
+
+Permutation Baselines: 
+\begin{tabular}{llllrr}
+\toprule
+{} & importance\_type & corpus & model &  mean\_correlation &  std\_correlation \\
+\midrule
+0 &        saliency &   geco &  gpt2 &         -0.001023 &         0.049186 \\
+1 &        saliency &   zuco &  gpt2 &          0.002629 &         0.043145 \\
+\bottomrule
+\end{tabular}

@@ -44,9 +44,9 @@ def extract_all_human_importance(corpus):
 
 
 #corpora = ["geco", "zuco"]
-corpora = ["geco"]
+corpora = ["zuco"]
 #models = ["distil", "albert","bert"]
-models = ["distil"]
+models = ["tinybert"]
 
 
 for corpus in corpora:

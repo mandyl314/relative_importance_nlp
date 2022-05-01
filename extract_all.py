@@ -51,7 +51,7 @@ models = ["bert"]
 for corpus in corpora:
     # We skip extraction of human importance here because it takes quite long.
     #extract_all_human_importance(corpus)
-    with open("results_ig/" + corpus + "_sentences.txt", "r") as f:
+    with open("results_ig2/" + corpus + "_sentences.txt", "r") as f:
         sentences = f.read().splitlines()
     print("Processing Corpus: " + corpus)
 
@@ -103,7 +103,7 @@ for corpus in corpora:
 
 
         #outfile = "results_reproduced/" + corpus + "_" + modelname + "__reproduced_"
-        outfile = "results_ig/" + corpus + "_" + modelname + "_ig_"
+        outfile = "results_ig2/" + corpus + "_" + modelname + "_ig_"
 
         # print("Extracting attention for " + modelname)
         # extract_all_attention(model, tokenizer, sentences, outfile+ "attention.txt")
